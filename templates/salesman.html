@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>慧艺搏教育</title>
+	</head>
+
+	<body>
+		<link rel="stylesheet" href="/static/css/detail.css" />
+		<style>
+			.anniu {
+				float: right;
+				text-decoration: none;
+				color: #fff;
+				background-color: #f00;
+				font-size: 14px;
+				width: 70px;
+				text-align: center;
+				font-weight: normal;
+				height: 25px;
+				line-height: 25px;
+				border: 1px solid #f00;
+				border-radius: 5px;
+			}
+
+			.g-bd {
+				width: 100%;
+				margin: 0 auto;
+				margin-top: 10px
+			}
+
+			#box .w-edt {
+				width: 100%;
+				border: none !important;
+			}
+
+			.m-box .w-edt .zarea {
+				padding: 5px;
+			}
+
+			#box {
+				border: 1px solid #ccc;
+				cursor: pointer;
+				overflow: auto;
+				resize: both;
+				width: 550px;
+			}
+
+			#rad input {
+				vertical-align: middle;
+				line-height: normal;
+				margin-top: -4px;
+				margin-left: 5px;
+			}
+		</style>
+		<div id="content" class="colM" style="border: none;">
+		     <img alt="logo" src="http://47.88.76.226/static/img/logo.png" />
+			<h2 style="text-align:center;margin-bottom:20px">业务员管理</h2>
+			<div id="content-main">
+				<form id="food2_form">
+						<fieldset class="module aligned ">
+							<div class="form-row field-food2name" style="border: none;">
+
+								<h2 >增加业务员</h2>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">用户名:</label>
+									<input class="vTextField inp name" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">密码:</label>
+									<input class="vTextField inp password" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">员工编号:</label>
+									<input class="vTextField inp number" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="lei">
+									<label for="id_food2name">类型:</label>
+									<input type="radio" name="leixing" value="1" />管理员
+									<input type="radio" name="leixing" value="2" />业务员
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="zhuang">
+									<label for="id_food2name">状态:</label>
+									<input type="radio" name="zhuangtai" value="1" />激活
+									<input type="radio" name="zhuangtai" value="0" />不激活
+								</div>
+							</div>
+							<div class="submit-row">
+								<input type="button" value="增加" class="default1" name="_save" />
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<h2 style="margin-left: ;">删除业务员</h2>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="rad">
+									<label for="id_food2name">选择用户名:</label>
+									{% for i in user_info %}
+									<input type="radio" name="rad" value={{ i.user_id }} />{{i.user_name}}
+									{% endfor %}
+								</div>
+							</div>
+							<div class="submit-row">
+								<input style="background-color: #f00;" type="button" value="删除" class="default2" name="_save" />
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<h2 >修改业务员信息</h2>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="salesman">
+									<label for="id_food2name">选择要修改的业务员:</label>
+									{% for i in user_info %}
+									<input type="radio" name="rad" value={{ i.user_id }} />{{i.user_name}}
+									{% endfor %}
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">用户名:</label>
+									<input class="vTextField inp name1" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">密码:</label>
+									<input class="vTextField inp password1" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">员工编号:</label>
+									<input class="vTextField inp number1" id="id_food2name" maxlength="80" name="food2name" type="text" value="">
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="lei1">
+									<label for="id_food2name">类型:</label>
+									<input type="radio" name="leixing" value="1" />管理员
+									<input type="radio" name="leixing" value="2" />业务员
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="zhuang1">
+									<label for="id_food2name">状态:</label>
+									<input type="radio" name="zhuangtai" value="1" />激活
+									<input type="radio" name="zhuangtai" value="0" />不激活
+								</div>
+							</div>
+							<div class="submit-row">
+								<input type="button" value="确认修改" class="default10" name="_save" />
+							</div>
+					</fieldset>
+			</div>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			//把在登录页面存到本地存储里面的id取出来
+			var login=window.localStorage.getItem("login");
+			if(login === "6"){
+				return false;
+			}else if(login === "7"){
+					return false;
+			}else{
+				var ua = navigator.userAgent.toLowerCase();
+            	if (/android/.test(ua)) {
+            		   setTimeout('window.open("http://www.huitraining.org.cn/login");', 400);
+            	}else{
+            		window.location.href="http://www.huitraining.org.cn/login";
+            	    //window.open("http://www.huitraining.org.cn/login");
+            	}
+			}
+		    var zhuang;
+	        var lei;
+	        var user_id;
+	        var zhuang1;
+	        var lei1;
+	        var user_id1;
+	        $('input:radio').click(function() {
+    			if($(this).attr("checked")) {
+
+    				$(this).attr("checked", false);
+    				$(this).siblings().attr("checked", true)
+    			} else {
+
+    				$(this).attr("checked", true)
+    				$(this).siblings().attr("checked", false)
+    			}
+    		})
+        	$("#zhuang input:radio").click(function(){
+    		    zhuang = $(this).val();
+    		})
+			$("#lei input:radio").click(function(){
+    		    lei = $(this).val();
+    		})
+    		$("#rad input:radio").click(function(){
+    		    user_id = $(this).val();
+    		})
+    		$("#salesman input:radio").click(function(){
+    		    salesman_id = $(this).val();
+    		    $.ajax({
+    				type: "POST",
+    				url: "",
+    				data: {
+    				    user_id:salesman_id,
+    				    user_query:'ok'
+    				},
+    				success: function(msg) {
+                        msg = JSON.parse(msg)
+                        //alert(msg)
+                        console.log(msg)
+    					console.log(msg.name)
+    					$('.name1').val(msg.name);
+    					//$(".password1").val(msg.passwd);
+    					$("#lei1 input:radio[value='" + msg.type + "']").prop("checked", "checked");
+    					$("#zhuang1 input:radio[value='" + msg.state + "']").prop("checked", "checked");
+    					$(".number1").val(msg.id);
+    				},
+    				error: function() {
+    					//alert(111);
+    				}
+
+		        })
+    		})
+
+		    $(".default1").click(function(){
+
+		        var number = $(".number").val();
+		        var name = $(".name").val();
+		        var password = $(".password").val();
+		        $.ajax({
+    				type: "POST",
+    				url: "",
+    				data: {
+    				    user_name:name,
+                        user_state:zhuang,
+                        user_type:lei,
+                        passwd:password,
+                        user_id:number,
+                        user_add:'ok'
+    				},
+    				success: function(msg) {
+    				    if(msg == '0000') {
+    						alert('保存成功!')
+    						location.reload();
+
+    					} else if(msg == '0001') {
+    						alert('用户名已经存在!请换一个')
+    					}  else if(msg == '0010') {
+    						alert('员工编号重复!请换一个')
+    					}else if(msg == '0011') {
+    						alert('保存失败！')
+    					} else {
+    						alert('未知错误!')
+    					}
+    				},
+    				error: function() {
+    					//alert(111);
+    				}
+
+		        })
+		    })
+		    $(".default2").click(function(){
+
+		        $.ajax({
+    				type: "POST",
+    				url: "",
+    				data: {
+    				    user_id:user_id,
+    				    user_del:'ok'
+    				},
+    				success: function(msg) {
+    				    if(msg == '0000') {
+    						alert('删除成功!')
+    						location.reload();
+
+    					} else if(msg == '0100') {
+    						alert('删除失败！没有此用户')
+    					} else {
+    						alert('未知错误!')
+    					}
+    				},
+    				error: function() {
+    					//alert(111);
+    				}
+
+		        })
+		    })
+		    $("#zhuang1 input:radio").click(function(){
+    		    zhuang1 = $(this).val();
+    		})
+			$("#lei1 input:radio").click(function(){
+    		    lei1 = $(this).val();
+    		})
+    		$("#salesman input:radio").click(function(){
+    		    salesman_id1 = $(this).val();
+    		})
+		    $(".default10").click(function(){
+                var number1 = $(".number1").val();
+		        var password1 = $(".password1").val();
+		        $.ajax({
+    				type: "POST",
+    				url: "",
+    				data: {
+                        user_state:zhuang1,
+                        user_type:lei1,
+                        passwd:password1,
+                        user_id:number1,
+                        user_update:'ok'
+    				},
+    				success: function(msg) {
+    				    if(msg == '0000') {
+    						alert('修改成功!')
+    						location.reload();
+
+    					} else if(msg == '0101') {
+                            	alert('修改失败!')
+    					} else {
+    						alert('未知错误!')
+    					}
+    				},
+    				error: function() {
+    					//alert(111);
+    				}
+
+		        })
+		    })
+
+		})
+	</script>
+
+
+
+
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>慧艺搏教育</title>
+	</head>
+
+	<body>
+		<link rel="stylesheet" href="/static/css/detail.css" />
+		<link rel="stylesheet" href="/static/kindeditor/themes/default/default.css" />
+		<link rel="stylesheet" href="/static/zyupload/skins/zyupload-1.0.0.min.css" />
+		<style>
+			.anniu {
+				float: right;
+				text-decoration: none;
+				color: #fff;
+				background-color: #f00;
+				font-size: 14px;
+				width: 70px;
+				text-align: center;
+				font-weight: normal;
+				height: 25px;
+				line-height: 25px;
+				border: 1px solid #f00;
+				border-radius: 5px;
+			}
+
+			.g-bd {
+				width: 100%;
+				margin: 0 auto;
+				margin-top: 10px
+			}
+
+			#box .w-edt {
+				width: 100%;
+				border: none !important;
+			}
+
+			.m-box .w-edt .zarea {
+				padding: 5px;
+			}
+
+			#box {
+				border: 1px solid #ccc;
+				cursor: pointer;
+				overflow: auto;
+				resize: both;
+				width: 550px;
+			}
+
+			#rad input {
+				vertical-align: middle;
+				line-height: normal;
+				margin-top: -4px;
+				margin-left: 5px;
+			}
+		</style>
+		<div id="content" class="colM" style="border: none;">
+			<h2><img src="/static/img/logo.png" /></h2>
+			<div id="content-main">
+				<form  id="food2_form" >
+						<fieldset class="module aligned ">
+							<div class="form-row field-food2name" style="border: none;">
+								<div id="rad">
+									<label for="id_food2name">选择课程位置:</label>
+									<input id="radio1" type="radio" name="rad" value="1" />1（上左）
+									<input id="radio2" type="radio" name="rad" value="2" />2（上右）
+									<input id="radio3" type="radio" name="rad" value="3" />3（下左）
+									<input id="radio4" type="radio" name="rad" value="4" />4（下中）
+									<input id="radio5" type="radio" name="rad" value="5" />5（下右）
+								</div>
+								<input type="hidden" id="class-val" value={{plan.num}} >
+								<input type="hidden" id="digital" value={{plan.digital}} >
+                                <input type="hidden" id="sign" value={{plan.sign}} >
+								<div>（课程后面的数字，代表着课程在首页的位置，从上面第一排依次是1,2,第二排是3,4,5（从左到右））</div>
+							</div>
+                            <div id="activation" class="form-row field-food2name" style="border: none;display:none">
+								<div>
+									<label for="id_food2name">是否激活:</label>
+									<input class="vTextField inp one-jihuo" id="id_food2name" maxlength="80" name="food2name" type="text" value=>
+								</div>
+							</div>
+							<div id="time" class="form-row field-food2name" style="border: none;display:none">
+								<div>
+									<label for="id_food2name">更新发布的时间:</label>
+									<input class="vTextField inp one-time" id="id_food2name" maxlength="80" name="food2name" type="text" value=>
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">标题一:</label>
+									<input class="vTextField inp one-t1" id="id_food2name" maxlength="80" name="food2name" type="text" value={{plan.t1}}>
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">标题二:</label>
+									<input class="vTextField inp one-t2" id="id_food2name" maxlength="80" name="food2name" type="text" value={{plan.t2}}>
+								</div>
+							</div>
+							<div class="form-row field-food2name">
+								<div>
+									<label for="id_food2name">天数:</label>
+									<input class="vTextField inp one-day" id="id_food2name" maxlength="80" name="food2name" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  type="text" value={{plan.days}}>
+								</div>
+							</div>
+							<div class="form-row field-food2name" style="border: none;">
+								<div>
+									<label for="id_food2name">详情页面标题:</label>
+									<input class="vTextField inp one-title" id="id_food2name" maxlength="80" name="food2name" type="text" value={{plan.title_details}}>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">课程简介:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id0' name="content0" style="width: 60%; height: 300px;">{{plan.UnitsConcerned}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">一、培训内容:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id' name="content" style="width: 60%; height: 300px;">{{plan.TrainMainContent}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">二、培训时间地点:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id1' name="content1" style="width: 60%; height: 300px;">{{plan.WhenWhere}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">三、参加对象:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id2' name="content2" style="width: 60%; height: 300px;">{{plan.Joinner}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">四、师资及培训方式:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id3' name="content3" style="width: 60%; height: 300px;">{{plan.TrainInfo}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">五、颁发证书:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id4' name="content4" style="width: 60%; height: 300px;">{{plan.Certificate}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">六、培训费用:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id5' name="content5" style="width: 60%; height: 300px;">{{plan.Price}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">七、报名联系:</label>
+									<div class="container-fluid">
+										<form>
+											<textarea id='editor_id6' name="content6" style="width: 60%; height: 300px;">{{plan.ApplyWay}}</textarea>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-row field-explain">
+								<div>
+									<label for="id_food2name">八、联系人:</label>
+									<input id="Contact" type="text" value={{plan.Contact}}   >
+								</div>
+							</div>
+							<div class="submit-row">
+								<input type="button" value="保存" class="default2" name="_save" />
+							</div>
+							<div class="submit-row">
+								<a style="float: left;background: #79aec8;padding: 10px 15px;border: none; border-radius: 4px;color: #fff;cursor: pointer;" class="bot-pdf" >上传pdf</a>
+							</div>
+							<div class="form-group clear" id='pdf' style="margin-bottom:15px !important;font-size: 14px; display:none;padding:0 20px  ">
+							    
+								<div>
+								    <label for="id_food2name">pdf联系人:</label>
+								    <div id="id_neirong" style="overflow:hidden"></div>
+								</div>
+
+								<div>
+									<label class="col-sm-1 control-label ziti" style="width:125px;">上传pdf:</label>
+
+									<div id="zyupload" class="zyupload" style="margin-left: 130px;"></div>
+								</div>
+								<div class="submit-row">
+    								<input type="button" value="保存" class="default" name="_save" />
+    							</div>
+							</div>
+							<input type="hidden" vlue=""  />
+					</fieldset>
+			</div>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/kindeditor/kindeditor.js"></script>
+	<script type="text/javascript" src="/static/kindeditor/zh_CN.js"></script>
+	<script type="text/javascript" src="/static/zyupload/zyupload.basic-1.0.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			//把在登录页面存到本地存储里面的id取出来
+			var login=window.localStorage.getItem("login");
+			if(login === "6"){
+				return false;
+			}else if(login === "7"){
+				return false;
+			}else{
+				var ua = navigator.userAgent.toLowerCase();
+            	if (/android/.test(ua)) {
+            		   setTimeout('window.open("http://www.huitraining.org.cn/login");', 400);
+            	}else{
+            		window.location.href="http://www.huitraining.org.cn/login";
+            	    //window.open("http://www.huitraining.org.cn/login");
+            	}
+			}
+		})
+	    var picurllist = new Array();
+	    $('input:radio').click(function() {
+			if($(this).attr("checked")) {
+
+				$(this).attr("checked", false);
+				$(this).siblings().attr("checked", true)
+			} else {
+
+				$(this).attr("checked", true)
+				$(this).siblings().attr("checked", false)
+			}
+		})
+		$("#rad input:radio").click(function(){
+		    var idd = $(this).val();
+		    window.location.href="http://www.huitraining.org.cn/plan_details"+idd;
+		    $(this).attr("checked")
+		})
+		var Classval = $("#class-val").val();
+		console.log(Classval);
+		$("#radio"+Classval).attr("checked", true);
+		//$("input[type='radio'][value='"+v+"']")
+		
+			
+		$('.bot-pdf').click(function(){
+			$("#id_neirong").empty();
+			
+			if(Classval === ''){
+				alert('请先选择课程！');
+				
+			}else{
+//				alert(2222);
+				$("#pdf").show();
+				$.ajax({
+					type: "POST",
+					url: "/user_query",
+					async: false,
+					data: {
+						user_query:'ok',
+						class_id:Classval
+					},
+					success: function(msg) {
+					    //alert(typeof(msg))
+	                    msg = JSON.parse(msg)
+	                    //alert(msg)
+	                    console.log(msg)
+	                    
+						//console.log(msg[1])
+						for (var i = 0; i<msg.length; i++) {
+							console.log(msg[i].pdf_update)
+				            var html1='<p style="float:left;margin-top:5px;margin-left:-5px;margin-right:10px" id='
+				            var html2='yewuyuan'+msg[i].user_id
+				            var html3='><input class="check" type="radio" style="margin:0 5px; float:none" name="checkbox_name"'
+				         	var html4='value='
+				          	var html5=msg[i].user_id
+				            var html6='>'
+				            var html7='<span>'
+				            var html8=msg[i].user_name
+				            var html9='</span>'
+				            var html10='<input class="zhuangtai" type="hidden" value='
+				            var html11=msg[i].pdf_update
+				            var html12='><img class="pdftb" src="/static/img/pdftb.jpg" width="30px" style="display:none;vertical-align:middle"  /></p>'
+				            var html13=html1+html2+html3+html4+html5+html6+html7+html8+html9+html10+html11+html12
+				            $('#id_neirong').append(html13)
+	
+				       }
+					},
+					error: function() {
+						alert("程序出错！");
+					}
+			
+	
+			   })
+			}
+			if($("#yewuyuan1").find(".zhuangtai").val()==='1'){
+				$("#yewuyuan1").find(".pdftb").show();
+			}else{
+				$("#yewuyuan1").find(".pdftb").hide();
+			}
+			if($("#yewuyuan2 .zhuangtai").val()==="1"){
+				$("#yewuyuan2 .pdftb").show()
+			}else{
+				$("#yewuyuan2 .pdftb").hide()
+			}
+			if($("#yewuyuan3 .zhuangtai").val()==="1"){
+				$("#yewuyuan3 .pdftb").show()
+			}else{
+				$("#yewuyuan3 .pdftb").hide()
+			}
+			if($("#yewuyuan4 .zhuangtai").val()==="1"){
+				$("#yewuyuan4 .pdftb").show()
+			}else{
+				$("#yewuyuan4 .pdftb").hide()
+			}
+			if($("#yewuyuan5 .zhuangtai").val()==="1"){
+				$("#yewuyuan5 .pdftb").show()
+			}else{
+				$("#yewuyuan5 .pdftb").hide()
+			}
+			if($("#yewuyuan6 .zhuangtai").val()==="1"){
+				$("#yewuyuan6 .pdftb").show()
+			}else{
+				$("#yewuyuan6 .pdftb").hide()
+			}
+			
+		})
+		
+		var editor0 = KindEditor.create('textarea[name="content0"]');
+		var editor = KindEditor.create('textarea[name="content"]');
+		var editor1 = KindEditor.create('textarea[name="content1"]');
+		var editor2 = KindEditor.create('textarea[name="content2"]');
+		var editor3 = KindEditor.create('textarea[name="content3"]');
+		var editor4 = KindEditor.create('textarea[name="content4"]');
+		var editor5 = KindEditor.create('textarea[name="content5"]');
+		var editor6 = KindEditor.create('textarea[name="content6"]');
+		$(".default2").click(function() {
+			var Onetitle = $(".one-title").val();
+			var content = editor.html();
+			var content0 = editor0.html();
+			var content1 = editor1.html();
+			var content2 = editor2.html();
+			var content3 = editor3.html();
+			var content4 = editor4.html();
+			var content5 = editor5.html();
+			var content6 = editor6.html();
+			var digital = $("#digital").val();
+			Classval = $("#class-val").val();
+			var id = $('input:radio:checked').val();
+			var Onet1 = $(".one-t1").val();
+			var Onet2 = $(".one-t2").val();
+			var Oneday = $(".one-day").val();
+			var Contact = $("#Contact").val();
+			//var id = $('#rad input:radio:checked').val();
+			console.log(content)
+			if ( Onetitle=="")
+                {
+                    alert('请输入详情页面标题!');
+                    return false;
+                }  else if(content == ""){
+                    alert('请输入培训内容!');
+                    return false;
+                }else if(content0 == ""){
+                    alert('请输入相关单位!');
+                    return false;
+                }else if(content1 == ""){
+                    alert('请输入培训时间地点!');
+                    return false;
+                }else if(content2 == ""){
+                    alert('请输入参加对象!');
+                    return false;
+                }else if(content3 == ""){
+                    alert('请输入师资及培训方式!');
+                    return false;
+                }else if(content4 == ""){
+                    alert('请输入颁发证书!');
+                    return false;
+                }else if(content5 == ""){
+                    alert('请输入培训费用!');
+                    return false;
+                }else if(content6 == ""){
+                    alert('请输入报名联系!');
+                    return false;
+                }else if(Onet1 == ""){
+                    alert('请输入标题一!');
+                    return false;
+                }else if(Onet2 == ""){
+                    alert('请输入标题二!');
+                    return false;
+                }else if(Classval == 0){
+                    alert('请选择课程!');
+                    return false;
+                }else if(Contact == ""){
+                    alert("请输入联系人！")
+                }
+			$.ajax({
+				type: "POST",
+				url: "/edit_plan",
+				data: {
+					title_details: Onetitle,
+					UnitsConcerned  :content0,
+					TrainMainContent: content,
+					WhenWhere       : content1,
+					Joinner         : content2,
+					TrainInfo       : content3,
+					Certificate     : content4,
+					Price           : content5,
+					ApplyWay        : content6,
+					plan_num        :Classval,
+					digital         :digital,
+					t1              : Onet1,
+					t2              : Onet2,
+					Contact         :Contact,
+					days: Oneday,
+					//plan_num:id
+				},
+				success: function(msg) {
+					if(msg == '0000') {
+						alert('保存成功!')
+						location.reload();
+
+					} else if(msg == '0001') {
+						alert('保存失败!')
+					} else {
+						alert('未知错误!')
+					}
+				},
+				error: function() {
+					alert("程序出错！");
+				}
+
+		    })
+		})
+		$(function() {
+			// 初始化插件
+			$("#zyupload").zyUpload({
+				width: "680px", // 宽度
+				height: "400px", // 宽度
+				itemWidth: "140px", // 文件项的宽度
+				itemHeight: "115px", // 文件项的高度
+				url: "/pdf_upload", // 上传文件的路径
+				fileType: ["pdf"], // 上传文件的类型
+				fileSize: 51200000, // 上传文件的大小
+				multiple: true, // 是否可以多个文件上传
+				dragDrop: false, // 是否可以拖动上传文件
+				tailor: false, // 是否可以裁剪图片
+				del: true, // 是否可以删除文件
+				finishDel: false, // 是否在上传文件完成后删除预览
+				/* 外部获得的回调接口 */
+				onSelect: function(selectFiles, allFiles) { // 选择文件的回调方法  selectFile:当前选中的文件  allFiles:还没上传的全部文件
+					console.info("当前选择了以下文件：");
+					console.info(selectFiles);
+				},
+				onDelete: function(file, files) { // 删除一个文件的回调方法 file:当前删除的文件  files:删除之后的文件
+					console.info("当前删除了此文件：");
+					console.info(file.name);
+				},
+				onSuccess: function(file, response) { // 文件上传成功的回调方法
+					console.info("此文件上传成功：");
+					console.info(file.name);
+					console.info("此文件上传到服务器地址：");
+					console.info(response);
+					picurllist.push(response);
+					$("#uploadInf").append("<p>上传成功，文件地址是：" + response + "</p>");
+				},
+				onFailure: function(file, response) { // 文件上传失败的回调方法
+					console.info("此文件上传失败：");
+					console.info(file.name);
+				},
+				onComplete: function(response) { // 上传完成的回调方法
+					console.info("文件上传完成");
+					console.info(response);
+				}
+			})
+
+		})
+
+        $(".default").click(function(){
+            //alert(picurllist)
+            picurllist = JSON.stringify(picurllist);
+            var id = $('#rad input:radio:checked').val();
+            var name_id = $('#id_neirong input:radio:checked').val();
+            var digital = $("#digital").val();
+            if(id === undefined){
+            	alert('请选择课程！');
+            }
+            
+            //alert(name_id)
+            //alert(digital)
+            console.log(picurllist)
+            $.ajax({
+				type: "POST",
+				url: "/pdf_upload",
+				data: {
+					picurllist: picurllist,
+					digital:digital,
+					plan_num:id,
+					name_id:name_id
+				},
+				success: function(msg) {
+					if(msg == '0000') {
+						alert('保存成功!');
+						location.reload();
+					} else if(msg == '0001') {
+						alert('保存失败!')
+					}else if(msg == '0011') {
+						alert('请先创建课程信息！!')
+					} else if(msg == '1111') {
+						alert('请先上传pdf!');
+						location.reload();
+					} else {
+						alert('未知错误!')
+					}
+				},
+				error: function() {
+					alert("程序出错！");
+				}
+
+		    })
+        })
+        var sign = $("#sign").val();
+        if(sign === '0'){
+            $("#activation").hide();
+            $("#time").hide();
+        }else if(sign === '1'){
+            $("#activation").show();
+            $("#time").show();
+        }
+	</script>
+
+</html>

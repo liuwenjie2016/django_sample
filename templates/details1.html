@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="教育"/>
+		<title>{{plan.title_details}}</title>
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="stylesheet" href="/static/css/common.css" />
+        <link rel="stylesheet" href="/static/css/share.css"/>
+		<script type="text/javascript" src="/static/js/jquery.min.js" ></script>
+		<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+  <!--      <script src="http://mp.31huiyi.com/extra/WXJSSDKHandler.ashx?appId=wx6924e47808faa535&currentUrl=http://event.3188.la/511088556"></script>-->
+		<!--<script>-->
+		<!--    window.wxshare_title = "慧艺博教育";-->
+  <!--          window.wxshare_desc = {{plan.title_details}};-->
+  <!--          window.wxshare_imgUrl = "http://www.huitraining.org.cn/static/img/lologo.png";-->
+  <!--          window.wxshare_link = "";-->
+  <!--          window.wxshare_hideOptionMenu = false;-->
+  <!--          window.wxshare_debug = false;-->
+		<!--</script>-->
+        <script type="text/javascript">
+
+        window._bd_share_config=
+      {"common":{
+      	"bdSnsKey":{},"bdText":"","bdMini":"1",
+      	"bdMiniList":["bdxc","tqf","douban","bdhome","sqq","thx","ibaidu","meilishuo","mogujie","diandian","huaban","duitang","hx","fx","youdao","sdo","qingbiji","people","xinhua","mail","isohu","yaolan","wealink","ty","iguba","fbook","twi","linkedin","h163","evernotecn","copy","print"],
+      	"bdPic":"","bdStyle":"1","bdSize":"32"
+      	},
+      	"share":{}};
+      	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+
+      </script>
+
+		<script type="text/javascript" src="/static/js/nav.js" ></script>
+		<script type="text/javascript" src="/static/js/qrcode.js"></script>
+		<style>
+			#chakan,#erwei{
+			    color: #fff;
+			    float:left;
+			    background-color: #226fd1;
+			    padding: 5px 10px;
+			    cursor: pointer;
+			    display: block;
+			    width: 120px;
+			    margin-top:20px ;
+			    text-align:center;
+			}
+			#erwei{
+			    margin-left:30px;
+			}
+			@media only screen and (min-width: 200px) and (max-width: 768px) {
+				.detail-biaoti{
+					margin: 0 3%;
+				}
+			}
+			@media only screen and (min-width: 200px) and (max-width: 767px) {
+				.detail-biaoti{
+					font-size: 24px;
+					line-height: 32px;
+				}
+				p{
+					font-size: 14px;
+				}
+			}
+			.div{
+				background-color: #FEB252;
+				width: 50px;
+				height: 90px;
+				border-radius: 5px;
+				text-align:center;
+				line-height: 45px;
+				padding-top: 5px;
+				position: fixed;
+				right: 0%;
+				top: 40%;
+				font-size: 20px;
+			}
+
+		</style>
+		<div id='wx_pic' style='margin:0 auto;display:none;'>
+		<img src='/static/img/lologo.jpg' />
+		</div>
+	</head>
+	<body>
+		<img src="/static/img/lologo.jpg" width="0" height="0"/>
+		<div class="div">
+		分<br />享
+		<div class="share-dialog" style="display: none;">
+    <div class="share-close"></div>
+    <div class="share-dialog-title">分享</div>
+    <div class="share-dialog-cont">
+        <div class="share-platform">
+            <div class="share-platform-l">分享平台：</div>
+            <div class="share-platform-r">
+                <div class="bdsharebuttonbox">
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</div>
+		<div class="tan1"></div>
+		<div id="box">
+			<div id="header">
+				<div class="subMenu">
+					<nav>
+						<div class="container">
+							<div class="logo">
+								<a href="">
+									<img alt="logo" src="/static/img/logo.png" />
+								</a>
+							</div>
+							<div class="navLeft">
+								<ul>
+									<li class="tiaozhuanpc">
+										<a id="shouye">首页</a>
+									</li>
+									<li class="tiaozhuanpc1">
+										<a href="http://www.huitraining.org.cn#tiaozhuan1">公司介绍</a>
+									</li>
+									<li class="tiaozhuanpc2">
+										<a href="http://www.huitraining.org.cn#tiaozhuan2">培训课程</a>
+									</li>
+									<li class="tiaozhuanpc3">
+										<a href="http://www.huitraining.org.cn#tiaozhuan3">联系我们</a>
+									</li>
+									<li class="tiaozhuanpc4">
+										<a class="denglu01">登录</a>
+										<div id="chaoji" style="display: none;">
+											<span class="chaoji1">新增课程</span>
+											<span class="chaoji2">业务员管理</span>
+											<span class="chaoji3">历史课程</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="navLeft1">
+								<div class="Line">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</div>
+								<!--.Line end-->
+							</div>
+							<!--.navLeft1 end-->
+							<div class="bottom-nav">
+								<div class="triangle-up">
+									<!--向上的三角-->
+								</div>
+								<ul>
+									<li class="tiaozhuan0">
+										<a href="http://www.huitraining.org.cn">首页</a>
+									</li>
+									<li class="tiaozhuan1">
+										<a href="http://www.huitraining.org.cn#tiaozhuan1">公司介绍</a>
+									</li>
+									<li class="tiaozhuan2">
+										<a href="http://www.huitraining.org.cn#tiaozhuan2">培训课程</a>
+									</li>
+									<li class="tiaozhuan3">
+										<a href="http://www.huitraining.org.cn#tiaozhuan3">联系我们</a>
+									</li>
+									<li>
+										<a class="denglu02" href="http://www.huitraining.org.cn/login">登录</a>
+									</li>
+								</ul>
+
+							</div>
+							<!--.bottom-nav-->
+						</div>
+					</nav>
+				</div>
+				<!--subMenu end-->
+			</div>
+			<!--#header end-->
+			<div id="center" style="margin-top: 80px;">
+			    <input type="hidden" id="hide" value="" />
+			    <input type="hidden" id="hide1" value="" />
+			     <input type="hidden" id="name-id" value={{plan.num}} />
+			     <input type="hidden" id="pdf-id" value={{plan.pdf_exist}} />
+				<div class="container">
+					<h1 class="detail-biaoti">{{plan.title_details}}</h1>
+					<p style="overflow:hidden;width:310px;margin:0 auto">
+<a id="chakan" href="" >查看pdf文件</a>
+<span id="erwei" href="" >查看pdf二维码</span></p>
+                   <input type="hidden" id="content" value="" />
+                   <input type="hidden" id="size" value="250">
+                    <div id="qrcode" style="width:250px;margin:10px auto"></div>
+					<p>{{plan.UnitsConcerned|safe}}</p>
+					<p>{{plan.TrainMainContent|safe}}</p>
+					<p>{{plan.WhenWhere|safe}}</p>
+					<p>{{plan.Joinner|safe}}</p>
+					<p>{{plan.TrainInfo|safe}}</p>
+					<p>{{plan.Certificate|safe}}</p>
+					<p>{{plan.Price|safe}}</p>
+					<p><strong style="font-size:18px">七、报名联系</strong></p>
+					<div style="padding-left:20px"><span style="font-size:16px;">联系人：</span><span style="font-size:16px">{{plan.Contact|safe}}</span><span id="name" style="font-size:16px;text-indent:1em"></span></div>
+					<p>{{plan.ApplyWay|safe}}</p>
+
+				</div><!--.container end-->
+			</div><!--#center end-->
+			<script>
+				$('.div').mouseover(function(){
+				$('.share-dialog').show();
+				});
+				$('.share-close').click(function(){
+					$('.share-dialog').hide();
+				});
+				//截取url中拿到的id
+            	function queryString(key) {
+            		var regex_str = "^.+\\?.*?\\b" + key + "=(.*?)(?:(?=&)|$|#)"
+            		var regex = new RegExp(regex_str, "i");
+            		var url = window.location.toString();
+            		if(regex.test(url)) return RegExp.$1;
+            		return undefined;
+            	}
+				var id = queryString("id")
+        	   $("#hide1").val(id);
+        	   if($("#hide1").val() === ''){
+
+        	   }else{
+        	        var username = $("#hide1").val();
+        	        $.ajax({
+            				type: "POST",
+            				url: "/user_query",
+            				data: {
+            					user_name:username,
+
+            				},
+            				success: function(msg) {
+            				    console.log(msg)
+            					msg = JSON.parse(msg)
+            						console.log(msg)
+            					$(".denglu01").text(msg);
+                                $(".denglu02").text(msg);
+                                $("#name").text(msg);
+            				},
+            				error: function() {
+            					alert("程序出错！");
+            				}
+
+            		    })
+
+        	   }
+                //截取url中拿到的id
+            	function queryString(key) {
+            		var regex_str = "^.+\\?.*?\\b" + key + "=(.*?)(?:(?=&)|$|#)"
+            		var regex = new RegExp(regex_str, "i");
+            		var url = window.location.toString();
+            		if(regex.test(url)) return RegExp.$1;
+            		return undefined;
+            	}
+        	    var id = queryString("id");
+				
+        	    $("#shouye").click(function(){
+        	    	var ua = navigator.userAgent.toLowerCase();
+                	if (/android/.test(ua)) {
+      
+                		    window.location.href="http://www.huitraining.org.cn?id="+id;
+                	}else if(/iphone|ipad|ipod/.test(ua)){
+                			//alert("ios");
+                	    	window.open("http://www.huitraining.org.cn?id="+id);
+                	}else{
+                		//alert("其它");
+                		window.location.href="http://www.huitraining.org.cn?id="+id;
+                	}
+        	    })
+        	   $("#hide").val(id);
+        	   if($("#hide").val() === '6'){
+	       $(".denglu01").hover(function(){
+				    $("#chaoji").show();
+				},function(){
+				    $("#chaoji").hide();
+				});
+	   }else if($("#hide").val() === '7'){
+	       $(".denglu01").hover(function(){
+				    $("#chaoji").show();
+				},function(){
+				    $("#chaoji").hide();
+				});
+	   }
+        	   
+        	   var text = $(".detail-biaoti").text();
+        	   var name_id = $("#name-id").val();
+        	   var qrcode;
+                // 默认设置
+                var content;
+                var size;
+        	   function qrcode1(){
+        		    
+                    // 获取内容
+                    content = document.getElementById("content").value;
+                    // 获取尺寸
+                    size = document.getElementById("size").value;
+                    // 检查内容
+                    if(content==''){
+                        alert('请输入内容！');
+                        return false;
+                    }
+                    // 检查尺寸
+                    if(!/^[0-9]*[1-9][0-9]*$/.test(size)){
+                        alert('请输入正整数');
+                        return false;
+                    }
+
+                    if(size<100 || size>500){
+                        alert('尺寸范围在100～500');
+                        return false;
+                    }
+
+                    // 清除上一次的二维码
+//                     if(qrcode){
+//                         qrcode.clear();
+//                     }
+						 var ua = navigator.userAgent.toLowerCase();
+	                        	if (/android/.test(ua)) {
+	                        		if(qrcode){
+			                        qrcode.clear();
+			                     }
+	                        	}
+                    // 创建二维码
+                    qrcode = new QRCode(document.getElementById("qrcode"), {
+                        width : size,//设置宽高
+                        height : size
+                    });
+                    console.log("content:"+content);
+                    console.log("size:"+size);
+                    qrcode.makeCode(content);
+
+        		}
+        		$("#chakan").click(function(){
+        		    if($("#hide").val() === ''){
+        		        console.log('chakan if')
+        		       // window.open("http://www.huitraining.org.cn/static/pdf/20170210.pdf");
+        		       	$.ajax({
+            				type: "POST",
+            				url: "/pdf_path",
+            				data: {
+            					plan_num:name_id,
+            					user_id:6
+            				},
+            				success: function(msg) {
+            				    	console.log(msg)
+            				        msg = JSON.parse(msg)
+            				 		console.log(msg)
+            					if(msg === 0){
+            					    alert("未上传pdf！请先上传")
+            					}else{
+            					    console.log($("#content").val());
+            					   // var ua = navigator.userAgent.toLowerCase();
+                    //             	if (/android/.test(ua)) {
+                    //             		    setTimeout('window.open("http://www.huitraining.org.cn/"+msg);', 400);
+                    //             	}else{
+                    //             	    	window.open("http://www.huitraining.org.cn/"+msg);
+                    //             	}
+                                    console.log(msg);
+                                    //alert(msg);
+                                     var ua = navigator.userAgent.toLowerCase();
+		                        	if (/android/.test(ua)) {
+		              
+		                        		    window.location.href="http://www.huitraining.org.cn/static/pdf/"+msg;
+		                        	}else if(/iphone|ipad|ipod/.test(ua)){
+		                        			//alert("ios");
+		                        	    	window.open("http://www.huitraining.org.cn/static/pdf/"+msg);
+		                        	}else{
+		                        		//alert("其它");
+		                        		window.location.href="http://www.huitraining.org.cn/static/pdf/"+msg;
+		                        	}
+            					}
+            				},
+            				error: function() {
+            					alert("程序出错！");
+            				}
+
+            		    })
+
+        		    }else{
+        		        $.ajax({
+            				type: "POST",
+            				url: "/pdf_path",
+            				data: {
+            					plan_num:name_id,
+        						user_id:id
+            				},
+            				success: function(msg) {
+            				    	console.log(msg)
+            					msg = JSON.parse(msg)
+            						console.log(msg)
+            						//alert(1111)
+            					//alert(typeof(msg))
+            				   // msg = JSON.parse(msg)
+            				    if(msg === 0){
+            					    alert("未上传pdf！请先上传")
+            					}else{
+            					   // var ua = navigator.userAgent.toLowerCase();
+                    //             	if (/android/.test(ua)) {
+                    //             		    setTimeout('window.open("http://www.huitraining.org.cn/"+msg);', 400);
+                    //             	}else{
+                    //             	    	window.open("http://www.huitraining.org.cn/"+msg);
+                    //             	}
+            					     //alert($("#content").val());
+            					   // window.open("http://www.huitraining.org.cn/"+msg)
+            					    console.log(msg);
+            					     var ua = navigator.userAgent.toLowerCase();
+		                        	if (/android/.test(ua)) {
+		                        		    window.location.href="http://www.huitraining.org.cn/static/pdf/"+msg;
+		                        	}else if(/iphone|ipad|ipod/.test(ua)){
+		                        		//alert("ios");
+		                        	    	window.open("http://www.huitraining.org.cn/static/pdf/"+msg);
+		                        	}else{
+		                        		//alert("其它");
+		                        		window.location.href="http://www.huitraining.org.cn/static/pdf/"+msg;
+		                        	}
+            					}
+            				},
+            				error: function() {
+            					alert("程序出错！");
+            				}
+
+            		    })
+        		    }
+
+        		})
+        		$("#erwei").click(function(){
+        		    if($("#hide").val() === ''){
+        		       	$.ajax({
+            				type: "POST",
+            				url: "/pdf_path",
+            				data: {
+            					plan_num:name_id,
+            					user_id:6
+            				},
+            				success: function(msg) {
+            				    	console.log(msg)
+            				        msg = JSON.parse(msg)
+            				 		console.log(msg)
+            					if(msg === 0){
+            					    alert("未上传pdf！请先上传")
+            					}else{
+            					    $("#content").val("http://www.huitraining.org.cn/static/pdf/"+msg);
+        					        console.log('进入if的ajax success,接下来生成二维码')
+        					        qrcode1();
+            					}
+            				},
+            				error: function() {
+            					alert("程序出错！");
+            				}
+            		    })
+        		    }else{
+        		        $.ajax({
+            				type: "POST",
+            				url: "/pdf_path",
+            				data: {
+            					plan_num:name_id,
+        						user_id:id
+            				},
+            				success: function(msg) {
+            				    	console.log(msg)
+            					msg = JSON.parse(msg)
+            						console.log(msg)
+            				    if(msg === 0){
+            					    alert("未上传pdf！请先上传")
+            					}else{
+            					    $("#content").val("http://www.huitraining.org.cn/static/pdf/"+msg);
+            					     console.log("进入else的ajax success,接下来生成二维码")
+                                    qrcode1();
+            					}
+            				},
+            				error: function() {
+            					alert("程序出错！");
+            				}
+            		    })
+        		    }
+        		})
+		$("#chaoji").hover(function(){
+		    $(this).show();
+		},function(){
+		    $(this).hide();
+		});
+		$("#chaoji span").hover(function(){
+			$(this).css("background","#226fd1").siblings().css("background","#fff");
+			$(this).css("color","#fff").siblings().css("color","#3A3A3A");
+		},function(){
+			$(this).css("background","#fff");
+			$(this).css("color","#3A3A3A")
+		})
+		$(".chaoji1").click(function(){
+			var ua = navigator.userAgent.toLowerCase();
+		  	if (/android/.test(ua)) {
+		        etTimeout('window.open("http://www.huitraining.org.cn/edit_plan");', 400);
+		  	}else{
+		        window.open("http://www.huitraining.org.cn/edit_plan");
+		  	  
+		  	}
+		});
+		$(".chaoji2").click(function(){
+			var ua = navigator.userAgent.toLowerCase();
+		  	if (/android/.test(ua)) {
+		        etTimeout('window.open("http://www.huitraining.org.cn/user_manage");', 400);
+		  	}else{
+		        window.open("http://www.huitraining.org.cn/user_manage");
+		  	  
+		  	}
+		});
+		$(".chaoji3").click(function(){
+			var ua = navigator.userAgent.toLowerCase();
+		  	if (/android/.test(ua)) {
+		        etTimeout('window.open("www.huitraining.org.cn/plan_query");', 400);
+		  	}else{
+		        window.open("www.huitraining.org.cn/plan_query");
+		  	  
+		  	}
+		});
+			</script>
+	</body>
+</html>
